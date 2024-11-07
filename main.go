@@ -11,7 +11,7 @@ type ContaCorrente struct {
 
 func (c *ContaCorrente) Sacar(valorDoSaque float64) string { 
 	podeSacar := valorDoSaque > 0 && valorDoSaque <= c.saldo //podeSacar é um booleano, que aceita verdadeiro ou falso
-	if podeSacar {
+	if podeSacar { //se podeSacar for verdadeiro
 		c.saldo -= valorDoSaque
 		return "Saque realizado com sucesso"
 	} else {
@@ -21,7 +21,7 @@ func (c *ContaCorrente) Sacar(valorDoSaque float64) string {
 
 func (d *ContaCorrente) Deposito(valorDoDeposito float64) string {
 	podeDepositar := valorDoDeposito > 0
-	if podeDepositar {
+	if podeDepositar { // se podeDepositar for verdadeiro
 		d.saldo += valorDoDeposito
 		return "Deposito realizado com sucesso"
 	} else {
