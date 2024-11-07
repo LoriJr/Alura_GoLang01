@@ -29,6 +29,16 @@ func (d *ContaCorrente) Deposito(valorDoDeposito float64) string {
 }
 }
 
+func (d *ContaCorrente) Deposito(valorDoDeposito float64) string {
+	podeDepositar := valorDoDeposito > 0
+	if podeDepositar {
+		d.saldo += valorDoDeposito
+		return "Deposito realizado com sucesso"
+	} else {
+		return "Valor do deposito menor ou igual a zero"
+}
+}
+
 func main() {
 	contaJunior := ContaCorrente{}
 	contaJunior.titular = "Junior"
