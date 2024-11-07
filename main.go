@@ -8,15 +8,15 @@ import (
 )
 
 func main() {
-	contaDoJunior := contas.ContaCorrente{Titular: clientes.Titular{Nome:"LouJr", CPF: "32055566644488", Profissao: "analista de sistemas"}, Saldo:30}
-	contaDaLais := contas.ContaCorrente{Titular: clientes.Titular{Nome:"Lais"}, Saldo: 300}
-
-	fmt.Println(contaDoJunior.Titular, "com Saldo de", contaDoJunior.Saldo)
-	fmt.Println(contaDaLais.Titular, "com Saldo de", contaDaLais.Saldo)
-
-	fmt.Println(contaDaLais.Transferir(100, &contaDoJunior))
-
-	fmt.Println(contaDoJunior.Titular, "com Saldo de", contaDoJunior.Saldo)
-	fmt.Println(contaDaLais.Titular, "com Saldo de", contaDaLais.Saldo)
+	contaDoJunior := contas.ContaCorrente{Titular: clientes.Titular{
+		Nome:"LouJr",
+		CPF: "12345678912",
+		Profissao: "analista de sistemas"},
+		NumeroAgencia: 123,
+		NumeroConta: 123456,
+		Saldo:30}
+	fmt.Println(contaDoJunior)
+	//impressão fica assim {{LouJr 12345678912 analista de sistemas} 123 123456 30}
+	//são duas chaves, a primeira se refere aos dados da conta corrente, quanto a segunda se refere aos dados do titular, com nome cpf e profissão
 
 }
