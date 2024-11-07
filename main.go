@@ -10,15 +10,22 @@ type ContaCorrente struct {
 }
 
 func main() {
-	contaDoJunior := ContaCorrente{titular: "Junior", saldo: 100} 
-	contaDoJunior2 := ContaCorrente{titular: "Junior", saldo: 100} 
-	fmt.Println(contaDoJunior) //aqui o código entende que a variável pertence à estrura <contaCorrente>
-	fmt.Println(&contaDoJunior) //aqui o código entende que a variável contém as mesmas informações da estrutura, mas não QUE SEJA da mesma estrutura
-	fmt.Println(&contaDoJunior == &contaDoJunior2) // com o &, está comparando se os endereços são iguais, e no caso é falso
-	fmt.Println(contaDoJunior == contaDoJunior2) // está comparando o conteúdo das variáveis, e no caso é verdadeiro
+	
+	var contaDaMaria *ContaCorrente
+	contaDaMaria = new(ContaCorrente)
+	contaDaMaria.titular = "Maria"
+	contaDaMaria.saldo = 500
 
-	//abaixo é feito o mesmo comparativo, mas nos campos que são como argumentos, e no caso a comparação é igual a de cima
-	contaDaLais := ContaCorrente{"Lais", 456, 7891010, 200}
-	contaDaLais2 := ContaCorrente{"Lais", 456, 7891010, 200}       
-	fmt.Println(contaDaLais == contaDaLais2)	
+	var contaDaMaria2 *ContaCorrente
+	contaDaMaria2 = new(ContaCorrente)
+	contaDaMaria2.titular = "Maria"
+	contaDaMaria2.saldo = 500
+
+	fmt.Println(contaDaMaria == contaDaMaria2) // nessa comparação mesmo que os dados sejam iguais, a comparação é do endereço na memória, que no caso é falso
+	fmt.Println(*contaDaMaria == *contaDaMaria2) // estamos comparando os dados das variáveis, que no caso são iguais e portanto, verdadeiro
+	fmt.Println(&contaDaMaria)  //endereço na memória 0xc00005e050 
+	fmt.Println(&contaDaMaria2) //endereço na memória 0xc00005e058
+	
+	
+	
 }
