@@ -1,14 +1,13 @@
 package contas
 
 import (
-"github.com/LoriJr/Alura_GoLang01/clientes"
+	"github.com/LoriJr/Alura_GoLang01/clientes"
 )
 
 type ContaCorrente struct {
-	Titular          clientes.Titular
-	NumeroAgencia    int
-	NumeroConta      int
-	saldo            float64
+	Titular                    clientes.Titular
+	NumeroAgencia, NumeroConta int
+	saldo                      float64
 }
 
 func (c *ContaCorrente) Sacar(valorDoSaque float64) string {
@@ -44,5 +43,4 @@ func (c *ContaCorrente) Transferir(valorDaTransferencia float64, contaDestino *C
 
 func (c *ContaCorrente) ObterSaldo() float64 {
 	return c.saldo
-	}
-
+}
