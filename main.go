@@ -11,7 +11,7 @@ func PagarBoleto(conta verificarConta, valorDoBoleto float64) {
 }
 
 type verificarConta interface {
-	Sacar(valor float64) string
+	Sacar(valor float64) string //como pagar um boleto é o mesmo que sacar um valor da conta, então nesse ponto o método sacar foi usado pq é a mesma idéia, e já está implementado, então não precisa fazer novamente essa parte do código.
 }
 
 func main() {
