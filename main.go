@@ -1,22 +1,23 @@
+//Criando um função variádica
+//Para criar uma variadic function, devemos preceder o tipo do argumento com reticências, conforme o exemplo abaixo:
+
 package main
 
 import (
     "fmt"
 )
-//EXERCÍCIO
-type Conta struct {
-    saldo float64
-}
 
-func (c *Conta) depositarDezReais() float64 {
-    return c.saldo + 10
+func Somando(numeros ...int) int {
+    resultadoDaSoma := 0
+    for _, numero := range numeros {
+        resultadoDaSoma += numero
+    }
+    return resultadoDaSoma
 }
 
 func main() {
-    contaTeste := Conta{saldo: 10}
-
-    contaTeste.depositarDezReais()
-    contaTeste.depositarDezReais()
-
-    fmt.Println(contaTeste.depositarDezReais())
+    fmt.Println(Somando(1))
+    fmt.Println(Somando(1,1))
+    fmt.Println(Somando(1,1,1))
+    fmt.Println(Somando(1,1,2,4))
 }
