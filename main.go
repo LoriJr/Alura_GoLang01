@@ -4,19 +4,20 @@ import (
     "fmt"
 )
 
-type Conta struct {
-    saldo float64
+func SemParametro() string {
+    return "Exemplo de função sem parâmetro!"
 }
 
-func (c *Conta) depositarDezReais() float64 {
-    return c.saldo + 10
+func UmParametro(texto string) string {
+    return texto
+}
+
+func DoisParametros(texto string, numero int) (string, int) {
+    return texto, numero
 }
 
 func main() {
-    contaTeste := Conta{saldo: 10}
-
-    contaTeste.depositarDezReais()
-    contaTeste.depositarDezReais()
-
-    fmt.Println(contaTeste.depositarDezReais())
+    fmt.Println(SemParametro())
+    fmt.Println(UmParametro("Exemplo de função com um parâmetro"))
+    fmt.Println(DoisParametros("Passando dois parâmetros: essa string e o número", 10))
 }
