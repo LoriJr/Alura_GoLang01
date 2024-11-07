@@ -1,10 +1,16 @@
 package contas
 
+import (
+"github.com/rafaelbreno/go-alura-banco/clientes"
+)
+
 type ContaCorrente struct {
-	Titular       string
-	NumeroAgencia int
-	NumeroConta   int
-	Saldo         float64
+	Titular          clientes.Titular
+	TitularCPF       clientes.CPF
+	TItularProfissao clientes.Profissao
+	NumeroAgencia    int
+	NumeroConta      int
+	Saldo            float64
 }
 
 func (c *ContaCorrente) Sacar(valorDoSaque float64) string {
@@ -27,8 +33,8 @@ func (c *ContaCorrente) Depositar(valorDoDeposito float64) (string, float64) {
 	}
 }
 
-func (c *ContaCorrente) Transferir(valorDaTransferencia float64, contaDestino *ContaCorrente) (string, float64){
-	if valorDaTransferencia <= c.Saldo  && valorDaTransferencia > 0{
+func (c *ContaCorrente) Transferir(valorDaTransferencia float64, contaDestino *ContaCorrente) (string, float64) {
+	if valorDaTransferencia <= c.Saldo && valorDaTransferencia > 0 {
 		c.Saldo -= valorDaTransferencia
 		//contaDestino.Saldo += valorDaTransferencia
 		contaDestino.Depositar(valorDaTransferencia)
