@@ -1,50 +1,22 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+)
 
-type ContaCorrente struct {
-	titular       string
-	numeroAgencia int
-	numeroConta   int
-	saldo         float64
-}
-
-func (c *ContaCorrente) Sacar(valorDoSaque float64) string { 
-	podeSacar := valorDoSaque > 0 && valorDoSaque <= c.saldo //podeSacar é um booleano, que aceita verdadeiro ou falso
-	if podeSacar { //se podeSacar for verdadeiro
-		c.saldo -= valorDoSaque
-		return "Saque realizado com sucesso"
-	} else {
-		return "saldo insuficiente"
-	}
+type Conta struct {
+    saldo float64
 }
 
-func (d *ContaCorrente) Deposito(valorDoDeposito float64) string {
-	podeDepositar := valorDoDeposito > 0
-	if podeDepositar { // se podeDepositar for verdadeiro
-		d.saldo += valorDoDeposito
-		return "Deposito realizado com sucesso"
-	} else {
-		return "Valor do deposito menor ou igual a zero"
-}
-}
-
-func (d *ContaCorrente) Depositos(valorDoDeposito float64) string {
-	podeDepositar := valorDoDeposito > 0
-	if podeDepositar {
-		d.saldo += valorDoDeposito
-		return "Deposito realizado com sucesso"
-	} else {
-		return "Valor do deposito menor ou igual a zero"
-}
+func (c *Conta) depositarDezReais() float64 {
+    return c.saldo + 10
 }
 
 func main() {
-	contaJunior := ContaCorrente{}
-	contaJunior.titular = "Junior"
-	contaJunior.saldo = -100
-	
-	fmt.Println(contaJunior.Depositos(200))
-	fmt.Println(contaJunior.saldo)
+    contaTeste := Conta{saldo: 10}
 
+    contaTeste.depositarDezReais()
+    contaTeste.depositarDezReais()
+
+    fmt.Println(contaTeste.depositarDezReais())
 }
