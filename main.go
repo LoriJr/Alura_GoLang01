@@ -29,18 +29,30 @@ func (c *ContaCorrente) Depositar(valorDoDeposito float64) (string, float64) {
 	}
 }
 
+func (c *ContaCorrente) Transferir(valorDaTransferencia float64, contaDestino *ContaCorrente) (string, float64){
+	if valorDaTransferencia <= c.saldo  && valorDaTransferencia > 0{
+		c.saldo -= valorDaTransferencia
+		//contaDestino.saldo += valorDaTransferencia
+		contaDestino.Depositar(valorDaTransferencia)
+		return "Transferencia realizada com sucesso", c.saldo
+	} else {
+		return "Saldo insuficiente", c.saldo
+	}
+
+}
+
 func main() {
-	contaJunior := ContaCorrente{}
-	contaJunior.titular = "Junior"
-	contaJunior.saldo = 100
+contaDoJunior := ContaCorrente{titular:"LouJunior", saldo: 200}
+contaDaLais := ContaCorrente{titular:"Lais", saldo: 300}
 
-	// primeira forma
-	fmt.Println(contaJunior.saldo)
-	fmt.Println(contaJunior.Depositar(200))
+fmt.Println(contaDoJunior.titular, "com saldo de", contaDoJunior.saldo)
+fmt.Println(contaDaLais.titular, "com saldo de", contaDaLais.saldo)
 
-	//segunda forma
-	//trabalhando com os returns abaixo
-	status, valor := contaJunior.Depositar(200) // é como se fosse um unpacking do python
-	fmt.Println(status, valor)
+fmt.Println(contaDaLais.Transferir(100, &contaDoJunior))
+
+fmt.Println(contaDoJunior.titular, "com saldo de", contaDoJunior.saldo)
+fmt.Println(contaDaLais.titular, "com saldo de", contaDaLais.saldo)
+
+
 
 }
