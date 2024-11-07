@@ -10,5 +10,7 @@ type ContaCorrente struct {
 }
 
 func main() {
-	fmt.Println(ContaCorrente{})
+	contaDoJunior := ContaCorrente{titular:"Junior", saldo: 100} //não precisa ter uma ordem, podemos remover alguns campos sem problemas
+	contaDaLais := ContaCorrente{"Lais", 456, 7891010, 200} //dessa maneira, entende que são argumentos, então é necessário que todos os campoes estejam preenchidos, caso contrário use a primeira forma, delacrando a variável
+	fmt.Println(contaDoJunior, "\n" , contaDaLais)
 }
