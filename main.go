@@ -1,13 +1,15 @@
 package main
 
-import (	
+import (
 	"fmt"
+
+	"github.com/LoriJr/Alura_GoLang01/clientes"
 	"github.com/LoriJr/Alura_GoLang01/contas"
 )
 
 func main() {
-	contaDoJunior := contas.ContaCorrente{Titular: "LouJunior", Saldo: 200}
-	contaDaLais := contas.ContaCorrente{Titular: "Lais", Saldo: 300}
+	contaDoJunior := contas.ContaCorrente{Titular: clientes.Titular{Nome:"LouJr", CPF: "32055566644488", Profissao: "analista de sistemas"}, Saldo:30}
+	contaDaLais := contas.ContaCorrente{Titular: clientes.Titular{Nome:"Lais"}, Saldo: 300}
 
 	fmt.Println(contaDoJunior.Titular, "com Saldo de", contaDoJunior.Saldo)
 	fmt.Println(contaDaLais.Titular, "com Saldo de", contaDaLais.Saldo)
