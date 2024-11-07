@@ -6,8 +6,6 @@ import (
 
 type ContaCorrente struct {
 	Titular          clientes.Titular
-	TitularCPF       clientes.CPF
-	TItularProfissao clientes.Profissao
 	NumeroAgencia    int
 	NumeroConta      int
 	Saldo            float64
