@@ -22,5 +22,6 @@ func main() {
 
 	fmt.Println(contaDaMaria) //esse imprime um & na frente da impressão pq ele meio que não reconhece o exato local da variável mas sabe quais atributos estão nela
 	fmt.Println(*contaDaMaria) //esse já imprime sem o & porque já conhece a qual variável se refere
-
+	//sem o * diz respeito ao endereço na da variável na memória
+	//com o * diz respeito ao conteúdo da variável
 }
